@@ -1,0 +1,776 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+body{font-family: 'Open Sans', sans-serif;}
+$white: #fff;
+$white-opcity:rgba(255,255,255,.6);
+$orange: rgba(169,108,22, 1);
+$gray: #aaa;
+$black: #222;
+
+@mixin buttonBox{
+    background: #000;
+    padding: 0 30px;
+    height: 48px;
+    color: $white-opcity;
+    &:hover{
+        color: $white;
+    }
+}
+
+.mobile-menu{
+    position: fixed;
+    display: none;
+    top: 0;
+    left: -100%;//안보였다가 보여야 하기 때문에
+    width: 100%;
+    height: 100%;
+    background: $black;
+    // z-index를 주지 않으면 a태그의 역할이 안됨
+    z-index: 9999;
+    .container{
+        padding: 0 30px;
+        //메뉴 상단 쪽
+        .mobile-menu-bar{
+            display: flex;
+            justify-content: space-between;
+            height: 68px;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,.15);
+            // 로고가 들어있는 자리
+            .moda-logoBt-wrap{
+                width: 24px;
+                height: 24px;
+                // 넓이 높이를 주기위해
+                display: block;
+                a{
+                    display: block;
+                    img{
+                        width: 100%;
+                    }
+                }
+            }
+            //x표시
+            .movile-appBar-wrap{
+                width: 22px;
+                height: 14px;
+                display: block;
+                a{
+                    // x좌표 만드는 친구
+                    display: block;
+                    position: relative;
+                    width: 100%; //24px
+                    height: 100%; //14px
+                    i{
+                        display: block;
+                        position: absolute;
+                        width: 100%;
+                        height: 2px;
+                        background: $white;
+                        top: 50%;
+                        margin-top: -1px; //2px이기 때문에 -1줘야 가운데로옴
+                        &.appbar-line1{transform: rotate(45deg);}
+                        &.appbar-line2{transform: rotate(-45deg);}
+                    }
+                }
+            }
+        }
+        .mobile-menu-list{
+            width: 100%;
+            ul{
+                width: 100%;
+                li{ 
+                    padding: 10px 0;//사이 간격
+                    border-bottom: 1px solid rgba(255,255,255,.15);
+                    a{
+                        color: $white-opcity;
+                        font-size: 16px;
+                        &:hover{color: $white;}
+                    }
+                    //& 부모 상속자
+                    &:nth-child(3) a{
+                        color: $orange;
+                    }
+                }
+            }
+        }
+        .mobile-menu-footer{
+            p{
+                color: $white-opcity;
+                font-size: 16px;
+                padding-top: 20px;
+                line-height: 140%;
+                font-weight: 500;
+            }
+            .mobile-menu-footer-button{
+                margin-top: 20px;
+                button{
+                    @include buttonBox()
+                }
+            }
+            .mobile-menu-footer-sns{
+                margin-top: 20px;
+                span{
+                    display: inline-block;
+                    margin: 0 4px;
+                    a{
+                        display: block;
+                        width: 27px;
+                        height: 27px;
+                        border-radius: 50%;
+                        background: $gray;
+                        text-align: center;
+                        transition: .3s;
+                        &:hover{
+                            background: $white;
+                        }
+                        i{
+                            display: block;
+                            color: $black;
+                            font-size: 15px;
+                            line-height: 27px;
+                        }
+                    }    
+                }
+            }
+        }
+    }
+}
+
+#header{
+    width: 100%;
+    position: absolute;
+    height: 82px;
+    background: rgba(255,255,255,0);
+    overflow: hidden;
+    z-index: 999;
+    .container{
+        width: 100%;
+        max-width: 1090px;//max-width가 1090이 되면 만듬
+        margin: 0 auto;
+        position: relative;
+        // padding: 0 20px;
+        // box-sizing: border-box;
+        .header-mobile-menu-bar{
+            display: none;
+            //삼선 만들기
+            div{
+                display: flex;
+                justify-content: space-between;
+                position: relative;
+                background: white;
+                width: 100%;
+                height: 67px;
+                align-items: center;//정가운데 보내기위해
+                top: 0;
+                left: 0;
+                padding: 0 20px;
+                box-sizing: border-box;
+            .header-appBar-wrap{
+                width: 22px;
+                height: 14px;
+                a{
+                    display: block;
+                    width: 100%;//22px
+                    height: 100%;//14px
+                    position: relative;
+                    i{
+                       display: block;
+                       position: absolute;
+                       width: 100%;
+                       height: 2px;//선을 만들기 위해서
+                       background: #000; 
+                       left: 0;
+                       &.appbar-line1{top: 0;}
+                       &.appbar-line2{top: 50%;}
+                       &.appbar-line3{top: 100%;}
+                    }
+                }
+            }
+            .header-search-wrap{
+                a{
+                    color: #000;
+                    .fa-search{
+                        font-size: 20px;
+                    }
+                }
+            }
+          }   
+       }
+       aside{
+            // max-width를 1090을 줘서 
+            // 포지션으로 띄워서 안 곂치게하려고
+            position: absolute;
+            top: 5px;
+            right: 0;
+             span{
+                a{
+                    color: $white-opcity;
+                }
+                i{
+                    // i를 직선으로 피기위해서
+                    font-style: normal;
+                    color: $white-opcity;
+                    font-size: 10px;
+                    margin: 0 5px;
+                }
+            }
+       }.header-logoNav{
+            display: flex;
+            justify-content: space-between;
+            height: 80px;
+            align-items: center;
+            #nav{
+                span{
+                    display: inline-block;
+                    margin-left:30px;
+                    a{
+                        color: $white;
+                        font-size: 15px;
+                        transition: .3s;
+                        border-bottom: 1px solid rgba(255,255,255,0);
+                        &:hover{ border-bottom: 1px solid rgba(255,255,255,.7);}
+                    }
+                    &:nth-child(4) a{
+                        color: $orange;
+                        font-weight: bold;
+                    }
+                }  
+            }
+       }
+    }
+
+}
+#main{
+    width: 100%;
+    #section1{
+        width: 100%;
+        .container{
+            width: 100%;
+            position: relative;
+            background: #000;
+            .section1-video{
+                position: relative;
+                z-index: 1;
+                width: 100%;
+                height: 969px;
+                overflow: hidden;
+                // 까지 스크롤바 없어짐
+                video{
+                    width: 100%;
+                    height: auto;
+                    margin-left: 0;
+                    margin-top: -55.5px;
+                }
+            }
+            .section1-watch-again{
+                display: none;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                z-index: 2;
+                width: 160px;
+                height: 160px;
+                border-radius: 50%;
+                border: 1px solid $white-opcity;
+                margin-left: -80px;
+                margin-top: -80px;
+                background: rgba(255,255,255,.2);
+                ul{
+                    padding: 40px 0;
+                    li{
+                        // 가운데로 보내기 위해
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        h2{
+                            font-size: 14px;
+                            font-weight: bold;
+                            a{
+                                color: #fff;
+                            }
+                        }
+                        i{
+                            width: 40%; 
+                            height: 1px; 
+                            background: $white-opcity;
+                            margin: 15px 0;
+                        }
+                        h3{
+                            font-size: 14px;
+                            font-weight: bold;
+                            a{
+                                color: #fff;
+                                &:hover{
+                                    text-decoration: underline;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .section1-next-section{
+                position: absolute;
+                z-index: 2;
+                bottom: 100px;
+                width: 100%;
+                text-align: center;
+                transition: .3s;
+                span{
+                    a{
+                        color: white;
+                        text-transform: uppercase;
+                        transition: .3s;
+                        font-weight: bold;
+                        &:hover{
+                            color: $white-opcity;
+                        }
+                    }
+                
+                }
+                &:hover{
+                    bottom: 90px
+                }
+            }
+           
+            .section1-icon-footer{
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 60px;
+                z-index: 2;
+                padding: 0 120px;
+                box-sizing: border-box;// 안주면 스크롤 생김
+                background: rgba(61,65,66,.7);
+                display: flex;
+                justify-content: space-between;                
+                align-items: center;//높이가 있기 때문에 가운데로 옴
+                .section1-icon-footer-left{
+                    width: 120px;
+                    height: 60px;
+                    // 높이가 계속 상속 받아야함
+                    ul{
+                        display: flex;
+                        // 위에 넓이를 줘야 basis가 먹힘
+                        width: 120px;
+                        height: 60px;
+                        align-items: center;
+                        li{
+                            flex-basis: 50%;
+                            height: 100%;
+                            span{
+                                display: block;
+                                text-align: center;
+                                height: 100%;
+                                border-right: 1px solid rgba(255,255,255,.2);
+                                a{
+                                    display:block;
+                                    width: 100%;
+                                    height: 100%;
+                                    background: rgba(255,255,255,0);
+                                    color: rgba(255,255,255,.5);
+                                    i{
+                                        font-size: 24px;
+                                        padding: 16px 0;               
+                                    }
+                                    // 영상모양 의 배경 색깔
+                                    &.addBg{
+                                        background: rgba(110,116,117,.7);
+                                        color: rgba(255,255,255,1);
+                                    }    
+                                }
+                            }
+                            &:first-child span{
+                                border-left: 1px solid rgba(255,255,255,.2);
+                            }
+                        }
+                    }
+                }
+
+                .section1-icon-footer-center{
+                    width: 60px;
+                    height: 60px;
+                    ul{
+                        width: 100%;
+                        height: 100%;
+                        border-right: 1px solid rgba(255,255,255,.2);
+                        border-left: 1px solid rgba(255,255,255,.2);
+                        li{
+                            width: 100%;
+                            height: 100%;
+                        span{
+                            display: block;
+                            text-align: center;
+                            width: 100%;
+                            height: 100%;
+                            border-right: 1px solid rgba(255,255,255,.2);
+                            a{
+                                display:block;
+                                width: 100%;
+                                height: 100%;
+                                background: rgba(255,255,255,0);
+                                color: rgba(255,255,255,.5);
+                                i{
+                                    font-size: 24px;
+                                    padding: 16px 0;
+                                    transition: .3s;
+                                    &:hover{
+                                        padding-top: 20px;
+                                    }               
+                                }
+                        }
+                    }
+                }
+            }
+        }
+                .section1-icon-footer-right{
+                    width: 120px;
+                    height: 60px;
+                    // 높이가 계속 상속 받아야함
+                    ul{
+                        display: flex;
+                        // 위에 넓이를 줘야 basis가 먹힘
+                        width: 120px;
+                        height: 60px;
+                        align-items: center;
+                        li{
+                            flex-basis: 50%;
+                            height: 100%;
+                            span{
+                                display: block;
+                                text-align: center;
+                                height: 100%;
+                                border-right: 1px solid rgba(255,255,255,.2);
+                                a{
+                                    display:block;
+                                    width: 100%;
+                                    height: 100%;
+                                    background: rgba(255,255,255,0);
+                                    color: rgba(255,255,255,.5);
+                                    i{
+                                        font-size: 24px;
+                                        padding: 16px 0;               
+                                    }
+                                    img{
+                                        // 사진은 font-size가 아니고 넓이다
+                                        width: 18px;
+                                        padding: 18px 0; 
+                                        padding-left: 5px;
+                                    }  
+                                }
+                            }
+                            &:first-child span{
+                                border-left: 1px solid rgba(255,255,255,.2);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    #section2{
+        width: 100%;
+        // 반반 나누는것
+        background-image: linear-gradient(to right, #384144, #384144 50%, #727b77 50%);
+        .container{
+            width: 100%;
+            ul{
+                display: flex;
+                li{
+                    flex-basis: 50%;
+                    >div{
+                        padding: 70px 80px;
+                        .section2-title{
+                            padding-bottom: 30px;
+                            h2{
+                                font-weight: bold;
+                                font-size: 1.8rem;
+                                color: #fff;
+                                border-bottom: 1px solid rgba(255,255,255,.3);
+                            }
+                        }
+                        .section2-content{
+                            p{
+                                line-height: 200%;
+                                font-size: .8rem;
+                                color: $white-opcity;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    #section3{
+        width: 100%;
+        .container{
+            width: 100%;
+            .section3-tabMenu{
+                width: 100%;
+                height: 52px;
+                background: #2c3437;
+                ul{
+                    display: flex;
+                    justify-content: center;
+                    height: 52px;
+                    // 높이를 써줘야 함
+                    align-items: center;
+                    li{
+                        a{
+                            color: #aab6b1;
+                            display: block;
+                            padding: 16px 18px;
+                            text-transform: uppercase;
+                            &.addTab{
+                                background: #121416;
+                                color: white;
+                            }
+                            &:hover{
+                                background: #121416;
+                            }
+                        }
+                    }
+                }
+            }
+            .section3-gallery-wrap{
+                width: 100%;
+                position: relative;
+                .section3-gallery{
+                    width: 100%;
+                    background: #000;
+                    // 곂치게 하려고
+                   
+                    display: none;
+                    &:first-child{display: block;}
+                    ul{
+                        display: flex;
+                        // 넘치는건 밑으로 떨어트리려고
+                        flex-wrap: wrap;
+                        li{
+                            // div와 video가 넓이 100%여야지 33.333% 들어온다
+                            flex-basis: 33.333%;
+                            // 호버했을 때와 이미지들이 안보이게하고 스크롤 안생김
+                            overflow: hidden;
+                            div{
+                                width: 100%;
+                                a{
+                                    display: block;
+                                    position: relative;
+                                    width: 100%;
+                                    .section3-gallery-videoImage{
+                                        position: relative;
+                                        width: 100%;
+                                        display: block;
+                                        z-index: 1;
+                                        video{
+                                            width: 101%;
+                                            transform: scale(1);
+                                            transition: .3s;
+                                            // 밑에 여백 사라지게하려고
+                                            display: block;
+                                        }
+                                    }
+                                    .gallrycap{
+                                        position: absolute;
+                                        display: block;
+                                        // 비디오가 1이기 때문에
+                                        z-index: 2;
+                                        top: 0;
+                                        left: 0;
+                                        width: 100%;
+                                        height: 100%;
+                                        background: rgba(0, 0, 0, 0);
+                                        transition: .3s;
+                                    }
+                                    .section3-gallery-title{
+                                        // a기준으로 띄워짐
+                                        position: absolute;
+                                        top: 32%;
+                                        left: 15%;
+                                        transition: .3s;
+                                        z-index: 3;
+                                        opacity: 0;
+                                        margin-top: 10px;
+                                        >span{
+                                            margin-top: 15px;
+                                            opacity: 0;
+                                            transition: .3s;
+                                            display: block;
+                                            padding-bottom: 40px;
+                                            strong{
+                                                color: #fff;
+                                                font-size: 2em;
+                                            }
+                                            b{
+                                                color: #fff;
+                                                font-size: .8em;
+                                                text-transform: uppercase;
+                                                padding-bottom: 5px;
+                                                border-bottom: 1px solid rgba(255,255,255,.3);
+                                            }
+                                            >span{
+                                                width: 100px;
+                                                height: 100px;
+                                                border: 1px solid $white-opcity;
+                                                border-radius: 50%;
+                                                // display:block을 해야 동그라미가 완성
+                                                display: block;
+                                                text-align: center;
+                                                padding-top: 40px;
+                                                // 줘야 패딩을 줘도 동그라미가 안 망가짐
+                                                box-sizing: border-box;
+                                                .exploreBt{
+                                                    color: #fff;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                 // 배경색을 호버하면 검정색
+                                //  a한테 hover를 해서 줘야 span태그를 건들여도 투명도 안 바뀜
+                                &:hover .gallrycap{
+                                    background: rgba(0, 0, 0, .7);
+                                }
+                                  // 마우스 올리면 글자 보이게
+                                &:hover .section3-gallery-title{
+                                    opacity: 1;
+                                    margin-top: 0;
+                                }
+                                &:hover .section3-gallery-title>span:nth-child(1){
+                                    margin-top: 0;
+                                    opacity: 1;
+                                    transition: .3s;
+                                }
+                                &:hover .section3-gallery-title>span:nth-child(2){
+                                    margin-top: 0;
+                                    opacity: 1;
+                                    transition: .4s;
+                                }  
+                                &:hover .section3-gallery-title>span:nth-child(3){
+                                    margin-top: 0;
+                                    opacity: 1;
+                                    transition: .5s;
+                                }                             
+                                // 이미지 키우려고
+                                &:hover .section3-gallery-videoImage video{
+                                    transform: scale(1.2);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .section3-loadMore{
+                width: 100%;
+                padding: 80px 0;
+                background: #384244;
+                text-align: center;
+                .loadMore{
+                    cursor: pointer;
+                    width: 200px;
+                    height: 45px;
+                    font-size: 18px;
+                    background: #384244;
+                    border: 1px solid #5e686a;
+                    color: #dee4e3;
+                    transition: .3s;
+                    &:hover{
+                        background: #2f4e54;
+                    }
+                }
+            }
+        }
+        
+    }
+}
+#footer{
+    width: 100%;
+    padding: 50px 0;
+    background: #222;
+    .container{
+        display: flex;
+        flex-direction: column;
+        max-width: 1090px;
+        margin: 0 auto;
+        .footer-sitemap{
+            padding-bottom: 20px;
+            >ul{
+                display: flex;
+                >li{
+                    margin-right: 46px;
+                    &:last-child{margin-right: 0;}
+                    h4{
+                        padding-bottom: 5px;
+                        >i{
+                            // 블럭을 안해주면 인라인요소라 안생김
+                            display: block;
+                            width: 20px;
+                            height: 2px;
+                            background: #373737;
+                        }
+                    }
+                    .mapNavBt{
+                        text-transform: uppercase;
+                        color: #fff;
+                        cursor: pointer;
+                        font-size: 18px;
+                        font-weight: bold;
+                    }
+                    .mapSub{
+                        padding-top: 15px;
+                        >ul{
+                            >li{
+                                >a{
+                                    color: #888;
+                                    text-transform: uppercase;
+                                    &:hover{
+                                        color: #efefef;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .footer-copyright-sns{
+            display: flex;
+            justify-content: space-between;
+            .footer-copyright{
+                address{
+                    color: #888;
+                }
+            }
+            .footer-sns{
+                ul{
+                    display: flex;
+                    li{
+                        margin: 0 4px;
+                        a{  
+                            display: block;
+                            color: #888;
+                            width: 35px;
+                            height: 35px;
+                            border-radius: 50%;
+                            background: #888;
+                            display: flex;
+                            // 높이가 있어야 가능하다
+                            align-items: center;
+                            justify-content: center;
+                            i{
+                                display: block;
+                                color: #222;
+                                font-size: 20px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+

@@ -1,0 +1,402 @@
+@charset "utf-8";
+/* @import url('./reset.css'); */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+*{box-sizing: border-box;}
+body{font-family: 'Noto Sans KR', sans-serif;}
+
+/* 공통속성 */
+.container{width: 1160px; margin: 0 auto; height: inherit; /* background: rgba(0,0,0,.3); */}
+
+/* 레이아웃 */
+#header{width: 100%; height: 80px; background: #fff; position: fixed; top: 0; left: 0; z-index: 99999;}
+#mainTop{width: 100%; margin-top: 80px; background: #fff; padding: 50px 0;}
+#videoBanner{width: 100%; height: 610px;}
+#template{width: 100%;}
+#banner{width: 100%; height: auto; background: #f6f6f6; padding: 60px 0;}
+#titleBox{width: 100%; padding: 60px 0;}
+/* 넓이를 auto로 바꿔야함 */
+#slick_banner{width: 100%; height: auto; background: #555;}
+#dynamic{width: 100%; height: auto; background: #fcce01;}
+#movie{width: 100%; height: 700px; background: #8c816e;}
+#muser{width: 100%;}
+#reference{width: 100%; height: auto; background: #f7f7f7;}
+#etc{width: 100%; height: 163px; background: #1e1e1e;}
+#footer{width: 100%; height: auto;}
+
+
+/* header */
+/* 옆으로 와야하는 친구 부모에게 flex */
+.header_inner{position: relative;}
+.header_inner .header_inner_flex{display: flex; height: 80px; align-items: center;}
+.header_inner h1{margin-right: 10%;}
+.header_inner nav ul{display: flex;}
+.header_inner nav ul li{margin-right: 30px;}
+.header_inner nav ul li a{font-size: 18px; color: #333; font-weight: 500; letter-spacing: -2.52px;}
+.header_inner nav ul li a:hover{color: #fecb29;}
+
+/* 로그인 */
+.header_inner .gnb{display: flex; position: absolute; top: 27px; right: 0;}
+.header_inner .gnb ul{display: flex;}
+.header_inner .gnb > .gnb-sub{position: relative; top: 3px;}
+.header_inner .gnb ul li{margin-right: 18px;}
+
+/* 아이콘 */
+.header_inner .gnb .sns li:last-child{margin-right: 0;}
+.header_inner .gnb .sns li a img{vertical-align: bottom;}
+.mobile_header{display: none;}
+
+
+/* main-top-wrap */
+.main-top-wrap{display: flex; justify-content: space-between; height: 100%;}
+.main-top-wrap .main-top-left{flex-basis: 70%; height: 100%;  border-right: 1px solid #ddd;}
+.main-top-wrap .main-top-left h2{font-size: 32px; color: #1e1e1e; font-weight: bold;}
+.main-top-wrap .main-top-left h2 span a{position: relative; left: 10px; top: 8px;}
+.main-top-wrap .main-top-left h3{font-size: 64px; font-weight: 300px; color: #1e1e1e; margin-top: 10px;}
+.main-top-wrap .main-top-left h3 .colorY{color:#f9c200;}
+
+/* 오른쪽 컨텐츠 움직이는 것 */
+.main-top-wrap .main-top-right{flex-basis: 30%; height: 100%; ;}
+.main-top-wrap .main-top-right .news-box{width: 90%; margin: 0 auto; }
+.main-top-wrap .main-top-right .news-box h2{font-size: 17px; color: #454545; margin-bottom: 15px;}
+/* 높이가 정해지고 overflow hidden */
+.main-top-wrap .main-top-right .news-box .news-box-wrap{width: 100%; height: 110px; overflow: hidden; position: relative;}
+.main-top-wrap .main-top-right .news-box .news-box-wrap .news-item{position: absolute;width: 100%; top: 100%; left: 0;}
+.main-top-wrap .main-top-right .news-box .news-box-wrap .news-item:first-child{top: 0;}
+.main-top-wrap .main-top-right .news-box .news-box-wrap .news-item span{margin-bottom: 15px; display: block;}
+
+/* video-banner */
+.video-banner{background: #fcce01 url(../imges/mango_player3.png) no-repeat center center; position: relative;}
+.video-banner .playBtn{position: absolute; top: 50%; left: 50%; margin-top: -57px; margin-left: -57px;  animation: ani 1s infinite alternate;}
+
+/* section */
+.template{padding: 70px 0;}
+.template h2{text-align: center; font-size: 40px; color: #1e1e1e; margin-bottom: 27px;} 
+.template p{text-align: center; font-size: 18px; color: #777;}
+.template .template-line{margin-top: 77px;}
+.template .template-line ul{display: flex;}
+/* li를 기준으로  .template-text를 움직이려고*/
+.template .template-line ul li{position: relative;}
+/* 2의 배수들의 간격들 */
+.template .template-line .title li:nth-child(2n){top: 55px;}
+/* 각각의 li들과 버튼의 위치들 조정 */
+.template .template-line .title li:nth-child(1){left: 5px;}
+.template .template-line .title li:nth-child(2){left: 11px;}
+.template .template-line .title li:nth-child(3){left: 32px;}
+.template .template-line .title li:nth-child(4){left: 58px;}
+.template .template-line .title li:nth-child(5){left: 76px;}
+.template .template-line .title li:nth-child(6){left: 85px;}
+.template .template-line .title li:nth-child(7){left: 120px;}
+.template .template-line .title li:nth-child(8){left: 122px;}
+.template .template-line .title li:nth-child(9){left: 90px;}
+.template .template-line .title li:nth-child(10){left: 78px;}
+.template .template-line .title li:nth-child(11){left: 84px;}
+.template .template-line .title li:nth-child(12){left: 112px;}
+.template .template-line .title li:nth-child(13){left: 111px;}
+.template .template-line .title li:nth-child(14){left: 128px;}
+.template .template-line .title li:nth-child(15){left: 150px;}
+.template .template-line .title li.on .template-text{display: block;}
+.template .template-line .title li a{font-size: 16px; color: #666;}
+/* tab 눌르면 나오게 하려고 */
+.template .template-line .title li .template-text{position: absolute; width: 280px; display: none; top: -30px; background: #777; color: white; padding: 3px; border-radius: 10px;}
+.template .template-line .title li .template-text1{left: -80px;}
+.template .template-line .title li .template-text2{left: -143px;}
+.template .template-line .title li .template-text3{left: -194px;}
+/* 2의 배수들은 밑으로 떨어지게 */
+.template .template-line .title li:nth-child(2n) .template-text{top: 30px;}
+/* 로고 옆 */
+.ellipse{position: absolute; width: 18px; height: 18px; border-radius: 50%; background: #fcce01; text-align: center; font-size: 12px; color: white; top: 3px; left: 34px;}
+.btn{display: flex; justify-content: space-around; margin-top: 10px;}
+.btn li{ width: 13px; height: 14px;border: solid 1px #757575;border-radius: 50%;}
+.btn li.on{background: #757575  ;}
+
+
+/* banner부분 */
+.banner_area > div{position: relative;}
+.banner_area .bLeftBtn{position: absolute; top: 50%; left: -100px; transform: translateY(-50%);}
+.banner_area .bRighttBtn{position: absolute; top: 50%; right: -100px; transform: translateY(-50%);}
+.banner_area .bannerArea{width: 1160px; overflow: hidden;}
+.banner_area .bannerArea ul{width: 2350px; position: relative; left: 0;}
+.banner_area .bannerArea ul li{width: 220px; margin-right: 15px; float: left;}
+.banner_area .bannerArea ul li a{display: block;}
+.banner_area .bannerArea ul li a img{width: 100%; display: block;}
+/* 이미지 여백 display blokc vertical align bottom */
+
+#swiperSlide{display: none;}
+.swiper{width: 100%; height: 100%; padding: 20px;}
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+  }
+
+/* 버튼이 active 됐을때 색깔 cdn방식으로 들고왔기 때문에*/
+.swiper-slide img {display: block;  width: 100%; height: 100%;  object-fit: cover;}
+.swiper-pagination-bullet-active {background: #f9c200;}
+
+/* title-box 부분*/
+.title-box{text-align: center;}
+.title-box h2{font-size: 40px; color: #1e1e1e; margin-bottom: 30px;}
+.title-box p{font-size: 17px; color: #777;}
+
+/* 배너슬라이드 부분///////////////////////////////////////////////////// */
+
+/* 이미지에 흰색 선을 지워주기 위해 */
+.bx-wrapper{-webkit-box-shadow:none; box-shadow: none; border: none; background: #555; margin-bottom: 0;}
+
+/* 밑에 버튼의 위치를 바꾸기 위해 */
+.bx-wrapper .bx-pager {bottom: 10px;}
+
+/* hover 됐을 때 색깔을 바꾸기위해 */
+.bx-wrapper .bx-pager.bx-default-pager a.active, .bx-wrapper .bx-pager.bx-default-pager a:focus, .bx-wrapper .bx-pager.bx-default-pager a:hover {
+    background: #fcce01;
+}
+
+.bx-wrapper .bx-pager.bx-default-pager a {background: #fff;}
+/* 버튼의 이미지를 바꾸고 싶을 때 */
+/* .bx-wrapper .bx-next {right: 10px; background: url(../imges/right_btn.png) no-repeat left top/50%}
+.bx-wrapper .bx-prev {right: 10px; background: url(../imges/left_btn.png) no-repeat left top/50%} */
+
+/* 망고 다이나믹 */
+.dynamic{text-align: center; }
+.dynamic>div{padding: 60px 0;}
+.dynamic h3{font-size: 40px; color: white; line-height: 150%; margin-bottom: 5px; margin-top: 10px;}
+.dynamic h4{font-size: 25px; color: #555;}
+.dynamic .dynamic_banner{margin-top: 45px}
+.dynamic .dynamic_banner ul{display: flex; justify-content:space-between;}
+.dynamic .dynamic_banner ul li{width: 25%;}
+.dynamic .link{text-align: right; padding: 10px 0;}
+.dynamic .link a{text-decoration: underline;}
+
+/* 망고 무비 */
+.movie-box .container{display: flex; justify-content: space-between;}
+.movie-box .movie-phone{position: relative; background: url(../imges/main_mobile.png) no-repeat center bottom; flex: 1 1 50%; height: 700px;}
+.movie-box .movie-phone video{width: 407px; height: 407px; position: absolute; top: 237px; left: 50%; transform: translateX(-50%);}
+/* basis 50% */
+.movie-box .movie-text{flex: 1 1 50%; padding: 60px 20px 20px;}
+.movie-box .movie-text h3{font-size: 48px; color: #Fff; letter-spacing: -2px; font-weight: bold; margin-bottom: 50px;}
+.movie-box .movie-text h3 span{color: #ffe7bd; font-weight: normal;}
+.movie-box .movie-text p{font-size: 25px; color: #ffe7bd; letter-spacing: -2px; margin-bottom: 30px;}
+
+/* muser-box 후기부분 */
+.muser-box .container{padding: 60px 0;}
+.muser-box h2{text-align: center; font-size: 52px; color: #1e1e1e; font-weight: 100; line-height: 120%; margin-bottom: 100px;}
+.muser-box h2 span{display: block; font-size: 50px; font-weight: bold;}
+.muser-box .userText{display: flex; justify-content: space-between;}
+.muser-box .userText li{flex-basis: 25%; padding: 0 20px; color: #777; position: relative; height: 80px;}
+.muser-box .userText li:not(:last-child){border-right: 1px solid #ddd;}
+.muser-box .userText li span{display: block; text-align: center;margin-top: 30px; color: #1e1e1e; position: absolute; bottom: 0; }
+
+/* reference부분 */
+.reference-box{padding: 60px 0;}
+.reference-box img{width: 100%;}
+
+/* etc부분 */
+.etc-box ul{display: flex; justify-content: space-between; border-left: 1px solid rgba(255,255,255,.6); height: 163px;}
+.etc-box ul li{border-right: 1px solid rgba(255,255,255,.6); height: 163px; flex-basis: 20%; text-align: center; padding-top: 100px;}
+.etc-box ul li:nth-child(1){background: url(../imges/MA_manual.png) no-repeat center 50px;}
+.etc-box ul li:nth-child(2){background: url(../imges/MA_introduction.png) no-repeat center 50px;}
+.etc-box ul li:nth-child(3){background: url(../imges/MA_license.png) no-repeat center 50px;}
+.etc-box ul li:nth-child(4){background: url(../imges/MA_qna.png) no-repeat center 50px;}
+.etc-box ul li:nth-child(5){background: url(../imges/MA_news.png) no-repeat center 50px;}
+.etc-box ul li a{color: #f6f6f6;}
+
+/* footer부분 */
+/* 큰 두덩어리 column줘서 떨굼 */
+.footer-box>div{display: flex; flex-direction: column; padding: 60px 0;}
+/* 내용부분과 sns부분들에 나눔 */
+.footer-box .footer_inner-wrap{display: flex;}
+.footer-box .footer_inner-wrap .footer_inner{flex-basis: 75%;}
+/* 내용부분들 */
+.footer-box .footer_inner-wrap .footer_inner ul{display: flex;}
+.footer-box .footer_inner-wrap .footer_inner ul li{flex-basis: 33.333%; padding: 0 20px;}
+.footer-box .footer_inner-wrap .footer_inner ul li .tit{font-size: 14px; font-weight: bold; color: #1e1e1e; margin-bottom: 23px;}
+.footer-box .footer_inner-wrap .footer_inner ul li .txt{font-size: 14px; color: #666; letter-spacing: -1px;}
+.footer-box .footer_inner-wrap .footer_inner ul li.foot2{flex-basis: 30%;}
+.footer-box .footer_inner-wrap .footer_inner ul li.foot3{flex-basis: 36.667%;}
+.footer-box .footer_inner-wrap .util{flex: 1 1 25%;}
+/* sns부분들 */
+.footer-box .footer_inner-wrap .util ul{display: flex;}
+.footer-box .footer_inner-wrap .util ul li{flex-basis: 20%; text-align: center;}
+
+.footer-box .copy{margin-top: 20px;}
+@keyframes ani {
+    0%{transform: scale(1)}
+    100%{transform: scale(1.2)}
+}
+
+@media screen and (max-width:1380px){
+    .banner_area .bLeftBtn{left: -10px; z-index: 10;}
+    .banner_area .bRighttBtn{right: -10px; z-index: 10;}
+}
+
+
+@media screen and (max-width:1200px){
+    .container{width: 100%;}
+    .template .template-line{display: none;}
+    .banner_area .bannerArea{width: 100%;}
+}
+
+
+/* 1160이 되면 스크롤이 밑에 스크롤이 안 생김 */
+@media screen and (max-width:1160px){
+    .container{width: 100%; padding: 0 20px;}
+    /* 화면을 줄일 때 아이콘이 딱 붙는걸 방지하기 위해 패딩을 줌 */
+
+    /* font-size 줄이기 */
+    .movie-box .movie-text h3{font-size: 40px;}
+    .movie-box .movie-text p{font-size: 18px;}
+}
+
+@media screen and (max-width:1100px){
+    .header_inner .gnb .sns{display: none;}
+    .header_inner .gnb ul li:last-child{margin-right: 0px;}
+    #banner{display: none;}
+    #swiperSlide{display: block;}
+
+    .dynamic .dynamic_banner ul li{text-align: center;}
+    .dynamic .dynamic_banner ul li a img{width: 98%;}
+
+    /* 밑으로 떨어트리기 위해 */
+    .footer-box .footer_inner-wrap{display: flex; flex-wrap: wrap;}
+    .footer-box .footer_inner-wrap .footer_inner{flex-basis: 100%;}
+    .footer-box .footer_inner-wrap .util{flex: 1 1 100%; margin-top: 20px;}
+    .footer-box .footer_inner-wrap .util ul li{flex-basis: 50px}
+
+    
+    
+}
+
+@media screen and (max-width:950px){
+    .header_inner .gnb > .gnb-sub{top: -20px;}
+    .header_inner .header_inner_flex{justify-content: space-between;}
+    .header_inner nav ul li:last-child{margin-right: 0px;}
+    /* 글자 수를 줄이기 */
+    .main-top-wrap .main-top-left h2{font-size: 28px;}
+    .main-top-wrap .main-top-left h2 span a{position: relative; left: 10px; top: 8px;}
+    .main-top-wrap .main-top-left h3{font-size: 52px;}
+
+    /* 넓이 100프로로 만들기 */
+    #movie{height: auto;}
+
+    /* 밑으로 떨어지게하기 */
+    .movie-box .container{flex-wrap: wrap;}
+    .movie-box .movie-phone{flex: 1 1 100%; border-bottom: 5px solid #8c816e;}
+    .movie-box .movie-text{flex: 1 1 100%; text-align: center;}
+    .footer-box .footer_inner-wrap .util ul{display: flex;}
+    .footer-box .footer_inner-wrap .util ul li{flex-basis: 50px;}
+}
+
+@media screen and (max-width:880px){
+    .main-top-wrap{display: flex; flex-wrap: wrap;}
+    /* 오른쪽 배너를 떨어트린다 행의 줄바꿈을 하지 않는다 */
+    .main-top-wrap .main-top-left{flex-basis: 100%; border-right: none;}
+    .main-top-wrap .main-top-left h2{font-size: 32px; text-align: center;}
+    .main-top-wrap .main-top-left h3{font-size: 62px; text-align: center;}
+    .main-top-wrap .main-top-right{flex-basis: 100%; margin-top: 20px;}
+    .main-top-wrap .main-top-right .news-box{width: 90%; margin: 0 auto; background: #ddd; padding: 20px;}
+    
+    .video-banner{background: #fcce01 url(../imges/mango_player3.png) no-repeat center center/70%;}
+
+    .template h2{font-size: 32px;} 
+    .template p{font-size: 14px;}  
+
+    /* 후기 2줄만들기 */
+    .muser-box .userText{flex-wrap: wrap;}
+    .muser-box .userText li{flex-basis: 50%; padding: 0 20px; margin-bottom: 15px;}
+    .muser-box .userText li:nth-child(2){border-right: none}
+
+    /* 밑에 이미지 안보이게 하려고 */
+    #reference{display: none;}
+
+    /* 보더 맨 왼쪽 오른쪽 지우기위해서 */
+    .etc-box ul{border-left: 1px solid rgba(255,255,255,.0);}
+    .etc-box ul li:last-child{border-right: 1px solid rgba(255,255,255,.0);;}
+}
+
+@media screen and (max-width:720px){
+    #header{width: 100%; height: 60px; background: rgb(246, 238, 179);}
+    .header_inner{display: none;}
+    .mobile_header{display: block;}
+    .mobile_header ul{display: flex; height: 60px; align-items: center; justify-content: space-between;}
+    .mobile_header > ul > li:first-child{width: 26px; height: 16px;}
+    .mobile_header > ul > li:first-child .app-btn{width: 26px; height: 16px; display: block; position: relative;}
+
+    /* 삼선 만들기 */
+    .mobile_header ul li .app-btn .bar{width: 100%; height: 2px; background: #555; display: block; position: absolute; transition: .3s; top: 0; left: 0;}
+    .mobile_header ul li .app-btn .bar1{top: 0;}
+    .mobile_header ul li .app-btn .bar1.add{top: 50%; transform: rotate(45deg); margin-top: 1px;}
+    /* 정가운데 보내기 위해 */
+    .mobile_header ul li .app-btn .bar2{top: 50%;}
+    .mobile_header ul li .app-btn .bar2.add{opacity: 0;}
+    .mobile_header ul li .app-btn .bar3{top: 100%;}
+    .mobile_header ul li .app-btn .bar3.add{top: 50%; transform: rotate(-45deg); margin-top: 1px;}
+
+    /* 삼선 안에 메뉴들 */
+    .mobile_header ul li .mobile-nav{display: none; position: absolute; top: 60px; width: 100%; left: 0; height: 200px; z-index: 9999;}
+    /* 앱솔루트하면 넓이가 안 잡히기 떄문에 */
+    /* 스크롤바가 생기지 않으려면 left = 0을 줘야함 */
+    .mobile_header ul li .mobile-nav li{height: 50px; border-bottom: 1px solid #ddd; background: rgba(0,0,0,.8);text-align: center; }
+    .mobile_header ul li .mobile-nav li a{color: #ebebeb; line-height: 50px;}
+    .mobile_header ul li .mobile-find-btn i{font-size: 24px; color: #555;}
+
+    /* 글자를 더 쭐인다 */
+    .main-top-wrap .main-top-left h2{font-size: 24px;}
+    .main-top-wrap .main-top-left h3{font-size: 32px;}
+    /* 공간이 많이 벌어지는 이유는 header가 60px로 줄었기 때문에 margin과 padding을 줄여준다 */
+    #mainTop{ margin-top: 60px; padding: 30px 0;}
+
+    .template h2{font-size: 26px;} 
+    .template{padding: 30px 0;}
+
+    #titleBox{padding: 30px 0;}
+    .title-box h2{font-size: 30px;}
+    .title-box p{font-size: 16px;}
+
+    .dynamic .dynamic_banner ul{flex-wrap: wrap;}
+    .dynamic .dynamic_banner ul li{width: 50%;}
+
+    .dynamic h3{font-size: 24px;}
+    .dynamic h4{font-size: 18px;}
+    
+    /* 후기 */
+    .muser-box .userText li{flex-basis: 100%; padding: 0 20px 10px 20px; margin-bottom: 15px; border-bottom: 1px solid #ddd; text-align: center;}
+
+    /* 가상선택자를 사용하면 우선순위 때문에 오른쪽에 보더가 남아있음 */
+    .muser-box .userText li:nth-child(1n){border-right: 1px solid transparent;}
+
+    /* 가운데로 맞추기위해 */
+    .muser-box .userText li span{ position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);}
+    /* position: absolute; width: 100%; text-align: center; left:0;  */
+
+    .footer-box .footer_inner-wrap .footer_inner ul{flex-wrap: wrap;}
+    .footer-box .footer_inner-wrap .footer_inner ul li.foot1{flex-basis: 100%;}
+    .footer-box .footer_inner-wrap .footer_inner ul li.foot2{flex-basis: 100%;}
+    .footer-box .footer_inner-wrap .footer_inner ul li.foot3{flex-basis: 100%;}
+    .footer-box .footer_inner-wrap .footer_inner ul li{border-bottom: 1px solid #ddd; padding-bottom: 10px; padding-top: 10px;}
+}
+
+@media screen and (max-width: 580px) {
+    .muser-box h2{font-size: 42px;}
+    .muser-box h2 span{font-size: 40px;;}
+}
+
+
+@media screen and (max-width: 520px) {
+    .movie-box .movie-text h3{font-size: 32px;}
+    .movie-box .movie-text p{font-size: 16px;}
+}
+
